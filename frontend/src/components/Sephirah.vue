@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     get_sephirah () {
-      const path = 'http://localhost:5000/api/get/sephirah'
+      const path = 'http://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
       axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
