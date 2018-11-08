@@ -35,7 +35,7 @@ export default {
         url: url + '?nocache=' + new Date().getTime(), // Safari fix
         withCredentials: true
       }
-      axios.get(args)
+      axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
         })
