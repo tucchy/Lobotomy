@@ -18,6 +18,6 @@ def random_number():
 
 @api.route('/get/sephirah')
 def get_sephirah():
-    sephirah_data = open("./dist/static/data/sephirah/sephirah.json", 'r',encoding="utf-8")
+    sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
     return jsonify(data)
