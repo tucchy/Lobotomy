@@ -22,4 +22,11 @@ body {
   margin: 0;
   background-color: #2b2b2b!important;
 }
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
 </style>

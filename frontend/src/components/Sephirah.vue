@@ -92,11 +92,15 @@ main {
   height: 100%;
 }
 ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 100px;
-  padding-left: 1rem;
-  padding-right: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  //display: grid;
+  //grid-template-columns: repeat(2, 1fr);
+  //grid-auto-rows: 100px;
+  //padding-left: 1rem;
+  //padding-right: 1.5rem;
 }
 li {
   .panel {
@@ -109,19 +113,22 @@ li {
     transition: 0.2s;
     display: flex;
     .img-frame{
-      padding: 0.25rem;
+      padding: 5px;
       width: 30%;
-      overflow: hidden;
       img {
         height: 100%;
+        border: 1px solid #b8b641;
       }
     }
     p {
-      text-align: center;
+      text-align: right;
+      padding-right: 5px;
       width: 70%;
     }
   }
-  display: block;
+  display: block!important;
+  width: 50%;
+  height: 100px;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 2rem;
