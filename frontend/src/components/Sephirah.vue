@@ -55,6 +55,9 @@ export default {
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
 $header_height: 6rem;
 $index_bg: #2b2b2b;
+[v-cloak] {
+  display: none;
+}
 .flex_wrapper {
   display: flex;
   background-color: $index_bg;
