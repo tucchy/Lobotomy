@@ -111,6 +111,7 @@ li {
     .img-frame{
       padding: 0.25rem;
       width: 30%;
+      overflow: hidden;
       img {
         height: 100%;
       }
