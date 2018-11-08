@@ -27,9 +27,9 @@ export default {
     }
   },
   methods: {
-    async get_sephirah () {
+    get_sephirah () {
       const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah' + '?nocache=' + new Date().getTime()
-      await axios.get(path)
+      axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
         })
