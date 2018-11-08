@@ -28,8 +28,15 @@ export default {
   },
   methods: {
     get_sephirah () {
-      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah' + '?nocache=' + new Date().getTime()
-      axios.get(path)
+      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
+
+args={
+  method: 'get',
+  url: path + '?nocache=' + new Date().getTime(), // Safari fix
+  withCredentials: true
+}
+
+      axios.get(args)
         .then(response => {
           this.sephirah_list = response.data
         })
