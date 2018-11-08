@@ -10,6 +10,7 @@
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
           <div class="panel">
+            <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
             {{ s.name }}
           </div>
           </transition>
