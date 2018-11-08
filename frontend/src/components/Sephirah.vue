@@ -10,8 +10,10 @@
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
           <div class="panel">
-            <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
-            {{ s.name }}
+            <div class="img-frame">
+              <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
+            </div>
+            <p>{{ s.name }}</p>
           </div>
           </transition>
         </li>
@@ -105,8 +107,17 @@ li {
     font-size: 1rem;
     text-align: center;
     transition: 0.2s;
-    &:active {
-      box-shadow: 0px 0px 1px 3px #b8b641;
+    display: flex;
+    .img-frame{
+      padding: 0.25rem;
+      width: 30%;
+      img {
+        height: 100%;
+      }
+    }
+    p {
+      text-align: center;
+      width: 70%;
     }
   }
   display: block;
