@@ -30,9 +30,11 @@ export default {
     get_sephirah () {
       const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
 
+url= 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
+
 args={
   method: 'get',
-  url: path + '?nocache=' + new Date().getTime(), // Safari fix
+  url: url + '?nocache=' + new Date().getTime(), // Safari fix
   withCredentials: true
 }
 
