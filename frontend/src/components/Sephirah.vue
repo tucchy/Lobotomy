@@ -6,7 +6,7 @@
       </router-link>
     </header>
     <main>
-      <transition-group tag="ul" name="panel" id="panel_list" appear>
+      <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
           <div class="panel">
