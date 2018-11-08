@@ -29,15 +29,12 @@ export default {
   methods: {
     get_sephirah () {
       const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
-
-url= 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
-
-args={
-  method: 'get',
-  url: url + '?nocache=' + new Date().getTime(), // Safari fix
-  withCredentials: true
-}
-
+      url= 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
+      args={
+        method: 'get',
+        url: url + '?nocache=' + new Date().getTime(), // Safari fix
+        withCredentials: true
+      }
       axios.get(args)
         .then(response => {
           this.sephirah_list = response.data
