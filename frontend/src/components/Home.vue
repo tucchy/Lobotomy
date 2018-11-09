@@ -20,7 +20,7 @@
             <div class="panel">E.G.O</div>
           </li>
           <li>
-            <div class="panel">FAQ</div>
+            <div class="panel">試練</div>
           </li>
         </ul>
       </transition>
