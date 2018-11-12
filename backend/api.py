@@ -22,9 +22,13 @@ def get_sephirah():
     data = json.load(sephirah_data)
     return jsonify(data)
 
-@api.route('/get/<name>')
+@api.route('/info/<name>')
 def get_sephirah_detail(name):
     sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
-    info = data[name]
+    info = "retun"
+    for sephirah in data:
+        if sephirah["Ename"] == name:
+            info = sephirah
+            break
     return jsonify(info)

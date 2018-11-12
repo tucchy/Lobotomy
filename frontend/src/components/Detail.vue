@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
     <p>{{ data }}</p>
   </div>
 </template>
@@ -14,7 +15,7 @@ export default {
   },
   methods: {
     get_info () {
-      const path = 'https://localhost:5000/api/info/' + this.data
+      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/info/' + this.data
       axios.get(path)
         .then(response => {
           console.log(response)
