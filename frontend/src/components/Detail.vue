@@ -1,5 +1,32 @@
 <template>
   <div>
-    <p>About</p>
+    <p>{{ data }}</p>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      data: ''
+    }
+  },
+  methods: {
+    get_info () {
+      const path = 'https://localhost:5000/api/info/' + this.data
+      axios.get(path)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  },
+  created () {
+    this.data = this.$route.params.data
+    this.get_info()
+  }
+}
+</script>

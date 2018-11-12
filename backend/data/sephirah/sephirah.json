@@ -1,46 +1,79 @@
 [
     {
-        "id":1,
-        "name":"アンジェラ"
+        "Angela":{
+            "id":1,
+            "Ename":"Angela",
+            "name":"アンジェラ"
+        }
     },
     {
-        "id":2,
-        "name":"マルクト"
+        "Malkuth":{
+            "id":2,
+            "Ename":"Malkuth",
+            "name":"マルクト"
+        }
     },
     {
-        "id":3,
-        "name":"イェソド"
+        "Yesod":{
+            "id":3,
+            "Ename":"Yesod",
+            "name":"イェソド"
+        }
     },
     {
-        "id":4,
-        "name":"ホド"
+        "Hod":{
+            "id":4,
+            "Ename":"Hod",
+            "name":"ホド"
+        }
     },
     {
-        "id":5,
-        "name":"ネツァク"
+        "Netzach":{
+            "id":5,
+            "Ename":"Netzach",
+            "name":"ネツァク"
+        }
     },
     {
-        "id":6,
-        "name":"ティファレト"
+        "Tiphereth":{
+            "id":6,
+            "Ename":"Tiphereth",
+            "name":"ティファレト"
+        }
     },
     {
-        "id":7,
-        "name":"ゲブラー"
+        "Gebura":{
+            "id":7,
+            "Ename":"Gebura",
+            "name":"ゲブラー"
+        }
     },
     {
-        "id":8,
-        "name":"ケセド"
+        "Chesed":{
+            "id":8,
+            "Ename":"Chesed",
+            "name":"ケセド"
+        }
     },
     {
-        "id":9,
-        "name":"ビナー"
+        "Binah":{
+            "id":9,
+            "Ename":"Binah",
+            "name":"ビナー"
+        }
     },
     {
-        "id":10,
-        "name":"ホクマー"
+        "Hokma":{
+            "id":10,
+            "Ename":"Hokma",
+            "name":"ホクマー"
+        }
     },
     {
-        "id":11,
-        "name":"ケテル"
+        "Kether":{
+            "id":11,
+            "Ename":"Kether",
+            "name":"ケテル"
+        }
     }
 ]

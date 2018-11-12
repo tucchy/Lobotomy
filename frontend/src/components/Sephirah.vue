@@ -9,12 +9,14 @@
       <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
-          <div class="panel">
-            <div class="img-frame">
-              <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
-            </div>
-            <p>{{ s.name }}</p>
-          </div>
+            <router-link :to="{ name: 'Detail', params: { data: s.name } }">
+              <div class="panel">
+                <div class="img-frame">
+                  <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
+                </div>
+                <p>{{ s.name }}</p>
+              </div>
+            </router-link>
           </transition>
         </li>
       </transition-group>
@@ -32,11 +34,6 @@ export default {
   methods: {
     get_sephirah () {
       const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
-      const args={
-        method: 'get',
-        url: path + '?nocache=' + new Date().getTime(), // Safari fix
-        withCredentials: true
-      }
       axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
@@ -99,11 +96,6 @@ ul {
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  //display: grid;
-  //grid-template-columns: repeat(2, 1fr);
-  //grid-auto-rows: 100px;
-  //padding-left: 1rem;
-  //padding-right: 1.5rem;
 }
 li {
   .panel {

@@ -14,7 +14,9 @@
             </router-link>
           </li>
           <li>
-            <div class="panel">アブノーマリティ</div>
+            <router-link :to="{ name: 'Detail', params: { data: 'test' } }">
+              <div class="panel">アブノーマリティ</div>
+            </router-link>
           </li>
           <li>
             <div class="panel">E.G.O</div>

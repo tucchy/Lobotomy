@@ -21,3 +21,10 @@ def get_sephirah():
     sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
     return jsonify(data)
+
+@api.route('/get/<name>')
+def get_sephirah_detail(name):
+    sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
+    data = json.load(sephirah_data)
+    info = data[name]
+    return jsonify(info)
