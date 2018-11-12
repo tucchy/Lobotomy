@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-cloak>
     <img v-bind:src="'../../static/sephirah/'+ data.name +'.png'" />
-    <p>{{ data }}</p>
+    <p>{{ data.name }}</p>
   </div>
 </template>
 
@@ -32,3 +32,19 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
+[v-cloak] {
+  display: none;
+}
+p {
+  color: #b8b641;
+}
+.panel-enter-active, .demo-leave-active {
+  transition: transform .5s, opacity .5s;
+}
+.panel-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+</style>
