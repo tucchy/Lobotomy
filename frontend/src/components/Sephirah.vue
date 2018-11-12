@@ -7,9 +7,9 @@
     </header>
     <main>
       <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
-        <li v-for="s in sephirah_list" :key="s.id">
+        <li v-for="s in sephirah_list" :key="s">
           <transition name="fade">
-            <router-link :to="{ name: 'Detail', params: { data: s.name } }">
+            <router-link :to="{ name: 'Detail', params: { data: s.Ename } }">
               <div class="panel">
                 <div class="img-frame">
                   <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
@@ -37,6 +37,7 @@ export default {
       axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
+          console.log(this.sephirah_list)
         })
         .catch(error => {
           console.log(error)
