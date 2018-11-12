@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
+    <img v-bind:src="'../../static/sephirah/'+ data.name +'.png'" />
     <p>{{ data }}</p>
   </div>
 </template>
@@ -10,7 +10,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      data: ''
+      data: {}
     }
   },
   methods: {
@@ -19,6 +19,7 @@ export default {
       axios.get(path)
         .then(response => {
           console.log(response)
+          this.data = response.data
         })
         .catch(error => {
           console.log(error)
