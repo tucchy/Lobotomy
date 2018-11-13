@@ -32,3 +32,9 @@ def get_sephirah_detail(name):
             info = sephirah
             break
     return jsonify(info)
+
+@api.route('/info/test')
+def get_sephirah_test():
+    sephirah_data = open("./backend/data/sephirah/sephirah_prof.json", 'r',encoding="utf-8")
+    data = json.load(sephirah_data)
+    return jsonify(data)
