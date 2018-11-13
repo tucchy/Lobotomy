@@ -24,6 +24,7 @@ def get_sephirah():
 
 @api.route('/info/sephirah/<name>')
 def get_sephirah_detail(name):
-    sephirah_data = open("./backend/data/sephirah/sephirah_frof.json", 'r',encoding="utf-8")
+    sephirah_data = open("./backend/data/sephirah/sephirah_prof.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
-    return jsonify(data)
+    info = data[name]
+    return jsonify(info)
