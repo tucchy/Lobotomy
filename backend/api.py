@@ -26,5 +26,4 @@ def get_sephirah():
 def get_sephirah_detail(name):
     sephirah_data = open("./backend/data/sephirah/sephirah_frof.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
-    info =data["Angela"]
-    return jsonify(info)
+    return jsonify(data)
