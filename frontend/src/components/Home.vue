@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     get_sephirah () {
-      const path = 'http://localhost:5000/api/info/test'
+      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/info/test'
       axios.get(path)
         .then(response => {
           this.randomNumber = response.data.randomNumber
