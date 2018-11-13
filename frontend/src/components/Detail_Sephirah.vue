@@ -1,8 +1,10 @@
 <template>
+<transition>
   <div v-cloak>
     <img v-bind:src="'../../static/sephirah/'+ data.name +'.png'" />
     <p>{{ data.name }}</p>
   </div>
+</transition>
 </template>
 
 <script>
@@ -41,10 +43,10 @@ export default {
 p {
   color: #b8b641;
 }
-.panel-enter-active, .demo-leave-active {
+.v-enter-active, .v-leave-active {
   transition: transform .5s, opacity .5s;
 }
-.panel-enter {
+.v-enter {
   opacity: 0;
   transform: translateY(-20px);
 }

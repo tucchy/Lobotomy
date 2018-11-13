@@ -59,7 +59,7 @@ $index_bg: #2b2b2b;
 .flex_wrapper {
   display: flex;
   background-color: $index_bg;
-  height: 100%;
+  height: 100vh;
   flex-direction: column;
 }
 .wrapper {
@@ -90,7 +90,8 @@ header {
 main {
   grid-area: main-area;
   width: 100%;
-  height: 100%;
+  height: 65%;
+  overflow: scroll;
 }
 ul {
   display: flex;
