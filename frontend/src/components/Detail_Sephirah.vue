@@ -28,6 +28,7 @@ export default {
   },
   created () {
     this.data = this.$route.params.data
+    console.log(this.data)
     this.get_info()
   }
 }
