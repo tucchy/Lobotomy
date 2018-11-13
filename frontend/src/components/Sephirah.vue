@@ -9,7 +9,7 @@
       <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
-            <router-link :to="{ name: 'Detail', params: { data: s.Ename } }">
+            <router-link :to="{ name: 'Detail', params: { data: '/sephirah/'+s.Ename } }">
               <div class="panel">
                 <div class="img-frame">
                   <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />

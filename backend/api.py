@@ -18,23 +18,13 @@ def random_number():
 
 @api.route('/get/sephirah')
 def get_sephirah():
-    sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
-    data = json.load(sephirah_data)
-    return jsonify(data)
-
-@api.route('/info/<name>')
-def get_sephirah_detail(name):
-    sephirah_data = open("./backend/data/sephirah/sephirah.json", 'r',encoding="utf-8")
-    data = json.load(sephirah_data)
-    info = "retun"
-    for sephirah in data:
-        if sephirah["Ename"] == name:
-            info = sephirah
-            break
-    return jsonify(info)
-
-@api.route('/info/test')
-def get_sephirah_test():
     sephirah_data = open("./backend/data/sephirah/sephirah_prof.json", 'r',encoding="utf-8")
     data = json.load(sephirah_data)
     return jsonify(data)
+
+@api.route('/info/sephirah/<name>')
+def get_sephirah_detail(name):
+    sephirah_data = open("./backend/data/sephirah/sephirah_frof.json", 'r',encoding="utf-8")
+    data = json.load(sephirah_data)
+    info =data[name]
+    return jsonify(info)
