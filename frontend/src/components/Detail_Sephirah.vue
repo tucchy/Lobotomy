@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     get_info () {
-      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/info/' + this.data
+      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/info/sephirah/' + this.data
       axios.get(path)
         .then(response => {
           console.log(response)

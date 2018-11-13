@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 const routerOptions = [
   {path: '/', component: 'Home'},
-  {path: '/detail/:data', name: 'Detail', component: 'Detail'},
+  {path: '/detail/sephirah/:data', name: 'Detail_Sephirah', component: 'Detail_Sephirah'},
   {path: '/sephirah', component: 'Sephirah'},
   {path: '*', component: 'NotFound'}
 ]
