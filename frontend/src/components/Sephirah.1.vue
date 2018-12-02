@@ -6,36 +6,60 @@
       </router-link>
     </header>
     <main>
-      <Index></Index>
+      <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
+        <li v-for="s in sephirah_list" :key="s.id">
+          <transition name="fade">
+            <router-link :to="{ name: 'Detail_Sephirah', params: { data: s.Ename } }">
+              <div class="panel">
+                <div class="img-frame">
+                  <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
+                </div>
+                <p>{{ s.name }}</p>
+              </div>
+            </router-link>
+          </transition>
+        </li>
+      </transition-group>
     </main>
   </div>
 </template>
 <script>
-import Index from './Index.vue'
+import axios from 'axios'
 export default {
-  components: { Index },
   data () {
     return {
-      randomNumber: 'message',
-      items: [
-        {message: 'item1'},
-        {message: 'item2'}
-      ]
+      sephirah_list: []
     }
   },
   methods: {
+    get_sephirah () {
+      const path = 'https://lobotomyinfostorehouse.herokuapp.com/api/get/sephirah'
+      axios.get(path)
+        .then(response => {
+          this.sephirah_list = response.data
+          console.log(this.sephirah_list)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   },
   created () {
+    this.get_sephirah()
   }
 }
 </script>
 <style lang="scss" scoped>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
 $header_height: 6rem;
 $index_bg: #2b2b2b;
+[v-cloak] {
+  display: none;
+}
 .flex_wrapper {
   display: flex;
   background-color: $index_bg;
-  height: 100%;
+  height: 100vh;
   flex-direction: column;
 }
 .wrapper {
@@ -52,6 +76,10 @@ $index_bg: #2b2b2b;
 html {
   height: 100vh;
 }
+body {
+  margin: 0;
+  background-color: $index_bg;
+}
 header {
   grid-area: header;
   width: 100%;
@@ -62,29 +90,43 @@ header {
 main {
   grid-area: main-area;
   width: 100%;
-  height: 100%;
+  height: 65%;
+  overflow: scroll;
 }
 ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 100px;
-  padding-left: 1rem;
-  padding-right: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
 }
 li {
   .panel {
     border: 1px solid #b8b641;
     color: #b8b641;
     box-shadow: 0px 0px 1px 1px #b8b641;
-    height: 100%;
+    height: 65px;
     font-size: 1rem;
     text-align: center;
     transition: 0.2s;
-    &:active {
-      box-shadow: 0px 0px 1px 3px #b8b641;
+    display: flex;
+    .img-frame{
+      padding: 4px;
+      width: 65px;
+      height: 65px;
+      img {
+        height: 100%;
+        border: 1px solid #b8b641;
+      }
+    }
+    p {
+      text-align: right;
+      padding-right: 5px;
+      width: 70%;
     }
   }
-  display: block;
+  display: block!important;
+  width: 50%;
+  height: 100px;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 2rem;

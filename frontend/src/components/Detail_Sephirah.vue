@@ -3,13 +3,23 @@
   <div v-cloak>
     <img v-bind:src="'../../static/sephirah/'+ data.name +'.png'" />
     <p>{{ data.name }}</p>
+    <p>{{ data.Ename }}</p>
+    <p>{{ data.serif }}</p>
+    <p>{{ data.intro }}</p>
+    <p>{{ data.personality }}</p>
+    <p>{{ data.story }}</p>
+    <DetailTab></DetailTab>
   </div>
 </transition>
 </template>
 
 <script>
 import axios from 'axios'
+import DetailTab from './DetailTab.vue'
 export default {
+  components: {
+    DetailTab
+  },
   data () {
     return {
       data: {}
@@ -22,6 +32,7 @@ export default {
         .then(response => {
           console.log(response)
           this.data = response.data
+          console.log(this.data)
         })
         .catch(error => {
           console.log(error)

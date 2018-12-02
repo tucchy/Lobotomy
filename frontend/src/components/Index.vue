@@ -1,14 +1,22 @@
 <template>
-  <div class="flex_wrapper">
-    <header>
-      <router-link to="/">
-        <img src="../../static/top.png">
-      </router-link>
-    </header>
-    <main>
-      <Index></Index>
-    </main>
-  </div>
+      <transition name="panel" appear>
+        <ul id="panel_list">
+          <li>
+            <router-link to="/sephirah">
+              <div class="panel">セフィラ</div>
+            </router-link>
+          </li>
+          <li>
+            <div class="panel">アブノーマリティ</div>
+          </li>
+          <li>
+            <div class="panel">E.G.O</div>
+          </li>
+          <li>
+            <div class="panel">試練</div>
+          </li>
+        </ul>
+      </transition>
 </template>
 <script>
 import Index from './Index.vue'
@@ -24,8 +32,6 @@ export default {
     }
   },
   methods: {
-  },
-  created () {
   }
 }
 </script>
