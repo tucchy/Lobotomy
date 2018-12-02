@@ -4,7 +4,6 @@
       <img @click="changepage('index')" src="../../static/top.png">
     </header>
     <main>
-      {{ pagename }}
       <transition>
         <Index class="menu" v-if="this.pagename === 'index'" @change ="changepage"></Index>
         <Sephirah class="menu" v-if="this.pagename === 'sephirah'"></Sephirah>
@@ -63,6 +62,7 @@ html {
 header {
   grid-area: header;
   width: 100%;
+  z-index: 1;
     img{
       width: 100%;
     }
@@ -125,9 +125,10 @@ li {
 }
 .menu {
   transition: all 0.8s ease;
+  width: 100%;
 }
 .v-enter {
-  transform: translateY(-10%);
+  transform: translateY(-100%);
   opacity: 0;
 }
 .v-enter-to {
