@@ -1,6 +1,11 @@
 <template>
 <transition>
   <div v-cloak>
+    <header>
+      <router-link to="/sephirah">
+        セフィラ一覧へ
+      </router-link>
+    </header>
     <img v-bind:src="'../../static/sephirah/'+ data.name +'.png'" />
     <p>{{ data.name }}</p>
     <p>{{ data.Ename }}</p>
@@ -54,11 +59,13 @@ export default {
 p {
   color: #b8b641;
 }
-.v-enter-active, .v-leave-active {
-  transition: transform .5s, opacity .5s;
+.panel-enter {
+  transform: translateX(-100%);
 }
-.v-enter {
-  opacity: 0;
-  transform: translateY(-20px);
+.panel-leave-active {
+  position: absolute;
+}
+.panel-leave-to {
+  transform: translateX(100%);
 }
 </style>

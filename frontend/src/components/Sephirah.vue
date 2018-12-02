@@ -1,11 +1,5 @@
 <template>
   <div class="flex_wrapper">
-    <header>
-      <router-link to="/">
-        <img src="../../static/top.png">
-      </router-link>
-    </header>
-    <main>
       <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
         <li v-for="s in sephirah_list" :key="s.id">
           <transition name="fade">
@@ -20,7 +14,6 @@
           </transition>
         </li>
       </transition-group>
-    </main>
   </div>
 </template>
 <script>
@@ -37,7 +30,6 @@ export default {
       axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
-          console.log(this.sephirah_list)
         })
         .catch(error => {
           console.log(error)

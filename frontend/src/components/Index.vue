@@ -1,37 +1,37 @@
 <template>
-      <transition name="panel" appear>
-        <ul id="panel_list">
-          <li>
-            <router-link to="/sephirah">
-              <div class="panel">セフィラ</div>
-            </router-link>
-          </li>
-          <li>
-            <div class="panel">アブノーマリティ</div>
-          </li>
-          <li>
-            <div class="panel">E.G.O</div>
-          </li>
-          <li>
-            <div class="panel">試練</div>
-          </li>
-        </ul>
-      </transition>
+  <ul id="panel_list">
+    <li>
+      <button class="panel" @click="$emit('change', 'sephirah')">
+        セフィラ
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'abnormality')">
+        アブノーマリティ
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'ego')">
+        E.G.O
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'ordeal')">
+        試練
+      </button>
+    </li>
+  </ul>
 </template>
 <script>
-import Index from './Index.vue'
 export default {
-  components: { Index },
   data () {
     return {
-      randomNumber: 'message',
-      items: [
-        {message: 'item1'},
-        {message: 'item2'}
-      ]
     }
   },
   methods: {
+    change_id () {
+      this.$emit('change_page')
+    }
   }
 }
 </script>
@@ -80,9 +80,12 @@ ul {
 li {
   .panel {
     border: 1px solid #b8b641;
+    display: block;
+    background-color: inherit;
     color: #b8b641;
     box-shadow: 0px 0px 1px 1px #b8b641;
     height: 100%;
+    width: 100%;
     font-size: 1rem;
     text-align: center;
     transition: 0.2s;
@@ -120,12 +123,5 @@ li {
 }
 .links {
   padding-top: 15px;
-}
-.panel-enter-active, .demo-leave-active {
-  transition: transform .5s, opacity .5s;
-}
-.panel-enter {
-  opacity: 0;
-  transform: translateY(-20px);
 }
 </style>

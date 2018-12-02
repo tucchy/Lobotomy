@@ -1,39 +1,42 @@
 <template>
-  <div class="flex_wrapper">
-    <header>
-      <img @click="changepage('index')" src="../../static/top.png">
-    </header>
-    <main>
-      {{ pagename }}
-      <transition>
-        <Index class="menu" v-if="this.pagename === 'index'" @change ="changepage"></Index>
-        <Sephirah class="menu" v-if="this.pagename === 'sephirah'"></Sephirah>
-        <Abnormality class="menu" v-if="this.pagename === 'abnormality'"></Abnormality>
-      </transition>
-    </main>
-  </div>
+  <ul id="panel_list">
+    <li>
+      <button class="panel" @click="$emit('change', 'sephirah')">
+        ZAYIN
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'abnormality')">
+        TETH
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'ego')">
+        HE
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'ordeal')">
+        WAW
+      </button>
+    </li>
+    <li>
+      <button class="panel" @click="$emit('change', 'ordeal')">
+        ALEPH
+      </button>
+    </li>
+  </ul>
 </template>
 <script>
-import Index from './Index.vue'
-import Sephirah from './Sephirah.vue'
-import Abnormality from './Abnormality.vue'
 export default {
-  components: {
-    Index,
-    Sephirah,
-    Abnormality
-  },
   data () {
     return {
-      pagename: 'index'
     }
   },
   methods: {
-    changepage: function (pagename) {
-      this.pagename = pagename
+    change_id () {
+      this.$emit('change_page')
     }
-  },
-  created () {
   }
 }
 </script>
@@ -82,9 +85,12 @@ ul {
 li {
   .panel {
     border: 1px solid #b8b641;
+    display: block;
+    background-color: inherit;
     color: #b8b641;
     box-shadow: 0px 0px 1px 1px #b8b641;
     height: 100%;
+    width: 100%;
     font-size: 1rem;
     text-align: center;
     transition: 0.2s;
@@ -122,22 +128,5 @@ li {
 }
 .links {
   padding-top: 15px;
-}
-.menu {
-  transition: all 0.8s ease;
-}
-.v-enter {
-  transform: translateY(-10%);
-  opacity: 0;
-}
-.v-enter-to {
-  opacity: 1;
-}
-.v-leave-active {
-  position: absolute;
-}
-.v-leave-to {
-  transform: translateX(100%);
-  opacity: 0;
 }
 </style>
