@@ -60,7 +60,7 @@ li {
     box-shadow: 0px 0px 1px 1px #b8b641;
     height: 100%;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.5rem;
     text-align: center;
     transition: 0.2s;
     &:focus {

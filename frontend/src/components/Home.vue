@@ -1,5 +1,5 @@
 <template>
-  <div class="flex_wrapper">
+  <div class="wrapper">
     <header>
       <img @click="changepage('index')" src="../../static/top.png">
     </header>
@@ -12,8 +12,10 @@
           </transition>
         </div>
       </div>
-      <Index class="menu tab" @change ="changepage"></Index>
     </main>
+    <footer>
+      <Index class="menu tab" @change ="changepage"></Index>
+    </footer>
   </div>
 </template>
 <script>
@@ -42,6 +44,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $header_height: 6rem;
+$footer_height: 3rem;
 $index_bg: #2b2b2b;
 .flex_wrapper {
   display: flex;
@@ -51,10 +54,9 @@ $index_bg: #2b2b2b;
 }
 .wrapper {
   display: grid;
-  grid-template-rows: $header_height 1fr;
+  grid-template-rows: 200px 400px 1fr;
   grid-template-columns: 1fr;
-  grid-template-areas: 'header' 'main-area';
-  box-shadow: 0 0 10p rgba(0, 0, 0, 0.2);
+  grid-template-areas: 'header' 'main-area' 'footer';
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -74,20 +76,22 @@ header {
 main {
   grid-area: main-area;
   width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 500px 100px;
-  grid-template-columns: 1fr;
-  grid-template-areas: 'content' 'tab';
+  overflow-y: scroll;
+  margin: 5px;
+  border: 1px solid #b8b641;
 }
 .main-container {
   grid-area: content;
-  overflow-y: scroll;
+  padding: 5px;
 }
 .tab {
   grid-area: tab;
   z-index: 1;
   background-color: $index_bg;
+}
+footer {
+  grid-area: footer;
+  z-index: 1;
 }
 ul {
   display: grid;
@@ -124,7 +128,7 @@ li {
 }
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
