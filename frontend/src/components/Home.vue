@@ -4,11 +4,15 @@
       <img @click="changepage('index')" src="../../static/top.png">
     </header>
     <main>
-      <transition>
-        <Index class="menu" v-if="this.pagename === 'index'" @change ="changepage"></Index>
-        <Sephirah class="menu" v-if="this.pagename === 'sephirah'"></Sephirah>
-        <Abnormality class="menu" v-if="this.pagename === 'abnormality'"></Abnormality>
-      </transition>
+      <div class="main-container">
+        <div class="container-frame">
+          <transition>
+            <Sephirah class="menu" v-if="this.pagename === 'sephirah'"></Sephirah>
+            <Abnormality class="menu" v-if="this.pagename === 'abnormality'"></Abnormality>
+          </transition>
+        </div>
+      </div>
+      <Index class="menu tab" @change ="changepage"></Index>
     </main>
   </div>
 </template>
@@ -71,6 +75,19 @@ main {
   grid-area: main-area;
   width: 100%;
   height: 100%;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'content' 'tab';
+}
+.main-container {
+  grid-area: content;
+  overflow-y: scroll;
+}
+.tab {
+  grid-area: tab;
+  z-index: 1;
+  background-color: $index_bg;
 }
 ul {
   display: grid;
@@ -78,6 +95,7 @@ ul {
   grid-auto-rows: 100px;
   padding-left: 1rem;
   padding-right: 1.5rem;
+  margin: 0;
 }
 li {
   .panel {

@@ -44,35 +44,9 @@ $index_bg: #2b2b2b;
   height: 100%;
   flex-direction: column;
 }
-.wrapper {
-  display: grid;
-  grid-template-rows: $header_height 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: 'header' 'main-area';
-  box-shadow: 0 0 10p rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: $index_bg;
-}
-html {
-  height: 100vh;
-}
-header {
-  grid-area: header;
-  width: 100%;
-    img{
-      width: 100%;
-    }
-}
-main {
-  grid-area: main-area;
-  width: 100%;
-  height: 100%;
-}
 ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: 100px;
   padding-left: 1rem;
   padding-right: 1.5rem;
@@ -89,8 +63,9 @@ li {
     font-size: 1rem;
     text-align: center;
     transition: 0.2s;
-    &:active {
+    &:focus {
       box-shadow: 0px 0px 1px 3px #b8b641;
+      outline: none;
     }
   }
   display: block;
