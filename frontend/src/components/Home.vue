@@ -4,14 +4,12 @@
       <img @click="changepage('index')" src="../../static/top.png">
     </header>
     <main>
-      <div class="main-container">
-        <div class="container-frame">
-          <transition>
-            <Sephirah class="menu" v-if="this.pagename === 'sephirah'"></Sephirah>
-            <Abnormality class="menu" v-if="this.pagename === 'abnormality'"></Abnormality>
-          </transition>
-        </div>
-      </div>
+      <transition-group tag="div">
+        <Sephirah class="menu" v-show="this.pagename === 'sephirah'" :key="pagelist[0]"></Sephirah>
+        <Abnormality class="menu" v-show="this.pagename === 'abnormality'" :key="pagelist[1]"></Abnormality>
+        <EGO class="menu" v-show="this.pagename === 'ego'" :key="pagelist[2]"></EGO>
+        <Ordeal class="menu" v-show="this.pagename === 'ordeal'" :key="pagelist[3]"></Ordeal>
+      </transition-group>
     </main>
     <footer>
       <Index class="menu tab" @change ="changepage"></Index>
@@ -22,15 +20,20 @@
 import Index from './Index.vue'
 import Sephirah from './Sephirah.vue'
 import Abnormality from './Abnormality.vue'
+import EGO from './E.G.O.vue'
+import Ordeal from './Ordeal.vue'
 export default {
   components: {
     Index,
     Sephirah,
-    Abnormality
+    Abnormality,
+    EGO,
+    Ordeal
   },
   data () {
     return {
-      pagename: 'index'
+      pagename: 'sephirah',
+      pagelist: ['sephirah', 'abnormality', 'ego', 'ordeal']
     }
   },
   methods: {
@@ -54,35 +57,28 @@ $index_bg: #2b2b2b;
 }
 .wrapper {
   display: grid;
-  grid-template-rows: 200px 400px 1fr;
+  grid-template-rows: 200px 350px 1fr;
   grid-template-columns: 1fr;
-  grid-template-areas: 'header' 'main-area' 'footer';
+  grid-template-areas: 'header' 'main' 'footer';
   width: 100%;
   height: 100%;
-  margin: 0 auto;
   background-color: $index_bg;
-}
-html {
-  height: 100vh;
 }
 header {
   grid-area: header;
-  width: 100%;
   z-index: 1;
     img{
       width: 100%;
     }
 }
 main {
-  grid-area: main-area;
-  width: 100%;
+  grid-area: main;
   overflow-y: scroll;
-  margin: 5px;
   border: 1px solid #b8b641;
+  margin: 5px;
 }
 .main-container {
   grid-area: content;
-  padding: 5px;
 }
 .tab {
   grid-area: tab;
@@ -91,6 +87,7 @@ main {
 }
 footer {
   grid-area: footer;
+  background-color: $index_bg;
   z-index: 1;
 }
 ul {
@@ -146,21 +143,18 @@ li {
   padding-top: 15px;
 }
 .menu {
-  transition: all 0.8s ease;
+  transition: all 0.8s ease-out;
   width: 100%;
 }
 .v-enter {
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(100%);
 }
 .v-enter-to {
-  opacity: 1;
 }
 .v-leave-active {
   position: absolute;
 }
 .v-leave-to {
-  transform: translateX(100%);
-  opacity: 0;
+  transform: translateY(150%);
 }
 </style>

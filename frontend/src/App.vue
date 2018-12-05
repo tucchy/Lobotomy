@@ -11,6 +11,9 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 html {
   height: 100vh;
 }
@@ -20,10 +23,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
 }
 body {
   margin: 0;
   background-color: #2b2b2b!important;
+  height: 100vh;
 }
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
