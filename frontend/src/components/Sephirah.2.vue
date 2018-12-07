@@ -1,27 +1,18 @@
 <template>
-  <div class="flex_wrapper">
-    <header>
-      <router-link to="/">
-        <img src="../../static/top.png">
-      </router-link>
-    </header>
-    <main>
-      <transition-group tag="ul" name="panel" id="panel_list" appear v-cloak>
-        <li v-for="s in sephirah_list" :key="s.id">
-          <transition name="fade">
-            <router-link :to="{ name: 'Detail_Sephirah', params: { data: s.Ename } }">
-              <div class="panel">
-                <div class="img-frame">
-                  <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
-                </div>
-                <p>{{ s.name }}</p>
-              </div>
-            </router-link>
-          </transition>
-        </li>
-      </transition-group>
-    </main>
-  </div>
+    <ul class="panel">
+      <li v-for="s in sephirah_list" :key="s.id">
+        <transition name="fade">
+          <router-link :to="{ name: 'Detail_Sephirah', params: { data: s.Ename } }">
+            <div class="panel">
+              <div class="img-frame">
+                  <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" v-cloak/>
+               </div>
+              <p>{{ s.name }}</p>
+            </div>
+          </router-link>
+        </transition>
+      </li>
+    </ul>
 </template>
 <script>
 import axios from 'axios'
@@ -37,7 +28,6 @@ export default {
       axios.get(path)
         .then(response => {
           this.sephirah_list = response.data
-          console.log(this.sephirah_list)
         })
         .catch(error => {
           console.log(error)
@@ -53,26 +43,6 @@ export default {
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
 $header_height: 6rem;
 $index_bg: #2b2b2b;
-[v-cloak] {
-  display: none;
-}
-.flex_wrapper {
-  display: flex;
-  background-color: $index_bg;
-  height: 100vh;
-  flex-direction: column;
-}
-.wrapper {
-  display: grid;
-  grid-template-rows: $header_height 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: 'header' 'main-area';
-  box-shadow: 0 0 10p rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: $index_bg;
-}
 html {
   height: 100vh;
 }
@@ -164,4 +134,6 @@ li {
   opacity: 0;
   transform: translateY(-20px);
 }
+[v-cloak] > * { display:none }
+[v-cloak]::before { content: "loading…" }
 </style>

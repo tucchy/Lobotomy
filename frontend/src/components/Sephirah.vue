@@ -1,16 +1,14 @@
 <template>
     <ul class="panel">
       <li v-for="s in sephirah_list" :key="s.id">
-        <transition name="fade">
-          <router-link :to="{ name: 'Detail_Sephirah', params: { data: s.Ename } }">
-            <div class="panel">
-              <div class="img-frame">
-                <img v-bind:src="'../../static/sephirah/'+ s.name +'.png'" />
+        <router-link :to="{ name: 'Detail_Sephirah', params: { data: s.Ename } }">
+          <div class="panel">
+            <div class="img-frame">
+                <img v-lazy="'../../static/sephirah/'+ s.name +'.png'" v-cloak/>
               </div>
-              <p>{{ s.name }}</p>
-            </div>
-          </router-link>
-        </transition>
+            <p>{{ s.name }}</p>
+          </div>
+        </router-link>
       </li>
     </ul>
 </template>
@@ -134,4 +132,7 @@ li {
   opacity: 0;
   transform: translateY(-20px);
 }
+[v-cloak] > * { display:none }
+[v-cloak]::before { content: "loading…" }
+
 </style>
