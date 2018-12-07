@@ -68,7 +68,7 @@ header {
   grid-area: header;
   color: #b8b641;
   vertical-align: middle;
-  font-size: 3rem;
+  font-size: 2.5rem;
   z-index: 1;
     img{
       width: 100%;
