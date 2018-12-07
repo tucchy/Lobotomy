@@ -16,6 +16,7 @@ export default {
 }
 html {
   height: 100vh;
+  overflow: hidden;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

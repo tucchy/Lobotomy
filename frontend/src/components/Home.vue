@@ -60,9 +60,14 @@ $index_bg: #2b2b2b;
   grid-template-rows: 100px 3fr 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: 'header' 'main' 'footer';
-  width: 100%;
+  max-width: 768px;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: $index_bg;
+  *{
+    max-width: 768px;
+  }
 }
 header {
   grid-area: header;
@@ -76,9 +81,13 @@ header {
 }
 main {
   grid-area: main;
+  position: relative;
   overflow-y: scroll;
   border: 1px solid #b8b641;
   margin: 5px;
+  * {
+    position: relative;
+  }
 }
 .main-container {
   grid-area: content;
@@ -146,18 +155,23 @@ li {
   padding-top: 15px;
 }
 .menu {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
+  position: absolute;
   width: 100%;
 }
 .v-enter {
+  opacity: 0;
   transform: translateY(100%);
 }
 .v-enter-to {
+  opacity: 1;
+  position: absolute;
 }
 .v-leave-active {
   position: absolute;
 }
 .v-leave-to {
-  transform: translateY(150%);
+  transform: translateY(50vh);
+  opacity: 0;
 }
 </style>
