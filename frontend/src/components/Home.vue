@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <header>
-      <img @click="changepage('index')" src="../../static/top.png">
+      ロボトミ記憶貯蔵庫
     </header>
     <main>
       <transition-group tag="div">
@@ -57,7 +57,7 @@ $index_bg: #2b2b2b;
 }
 .wrapper {
   display: grid;
-  grid-template-rows: 200px 350px 1fr;
+  grid-template-rows: 100px 3fr 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: 'header' 'main' 'footer';
   width: 100%;
@@ -66,6 +66,9 @@ $index_bg: #2b2b2b;
 }
 header {
   grid-area: header;
+  color: #b8b641;
+  vertical-align: middle;
+  font-size: 3rem;
   z-index: 1;
     img{
       width: 100%;
