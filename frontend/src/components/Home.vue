@@ -9,10 +9,10 @@
         @after-enter="afterEnter"
         @enter-cancelled="afterEnter"
       >
-        <Sephirah class="menu" v-if="this.pagename === 'sephirah'" :key="pagelist[0]"></Sephirah>
-        <Abnormality class="menu" v-if="this.pagename === 'abnormality'" :key="pagelist[1]"></Abnormality>
-        <EGO class="menu" v-if="this.pagename === 'ego'" :key="pagelist[2]"></EGO>
-        <Ordeal class="menu" v-if="this.pagename === 'ordeal'" :key="pagelist[3]"></Ordeal>
+        <Sephirah class="menu" v-show="this.pagename === 'sephirah'" :key="pagelist[0]"></Sephirah>
+        <Abnormality class="menu" v-show="this.pagename === 'abnormality'" :key="pagelist[1]"></Abnormality>
+        <EGO class="menu" v-show="this.pagename === 'ego'" :key="pagelist[2]"></EGO>
+        <Ordeal class="menu" v-show="this.pagename === 'ordeal'" :key="pagelist[3]"></Ordeal>
       </transition-group>
     </main>
     <footer>
@@ -173,7 +173,7 @@ li {
 }
 .v-enter {
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(100%);
 }
 .v-enter-to {
   opacity: 1;
